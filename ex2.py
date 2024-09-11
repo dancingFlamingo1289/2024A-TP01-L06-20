@@ -18,10 +18,8 @@ qteFiltres = qteFiltresRequise * rapportEau
 qteLampes = qteLampesRequise * rapportEau
 qteChlore = qteChloreRequise * rapportEau
 
-print("Bonjour"*20)
-
 sortie = (f"Voici les matériaux requis pour l'assainissement de {qteEau} L d'eau :\n" +
-          f"\t- {qteFiltres} filtres\n" + 
+          f"\t- {qteFiltres} filtres\n" +
           f"\t- {qteLampes} lampes UV\n" +
           f"\t- {qteChlore} kg de chlore")
 print(sortie)
