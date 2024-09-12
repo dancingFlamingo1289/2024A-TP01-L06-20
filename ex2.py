@@ -11,15 +11,19 @@ qteLampesRequise = 3
 # Quantité de chlore (en kilogrammes) pour assanir qteEauBase d'eau
 qteChloreRequise = 0.5
 
-qteEau = float(input("Quelle quantité d'eau faut-il assanir ? "))
-rapportEau = qteEau // qteEauBase
+qteEauStr = input("Quelle quantité d'eau faut-il assanir ? ")
 
-qteFiltres = qteFiltresRequise * rapportEau
-qteLampes = qteLampesRequise * rapportEau
-qteChlore = qteChloreRequise * rapportEau
+if (qteEauStr != "") :
+    qteEau = float(qteEauStr)
 
-sortie = (f"Voici les matériaux requis pour l'assainissement de {qteEau} L d'eau :\n" +
-          f"\t- {qteFiltres} filtres\n" +
-          f"\t- {qteLampes} lampes UV\n" +
-          f"\t- {qteChlore} kg de chlore")
-print(sortie)
+    rapportEau = qteEau / qteEauBase
+
+    qteFiltres = qteFiltresRequise * rapportEau
+    qteLampes = qteLampesRequise * rapportEau
+    qteChlore = qteChloreRequise * rapportEau
+
+    sortie = (f"Voici les elements requis pour assainir {qteEau}L d'eau:\n\n" +
+                f"\t- Filtre(s) : {qteFiltres}\n\n" +
+                f"\t- Lampes UV : {qteLampes}\n\n" +
+                f"\t- Chlore : {qteChlore}kg\n\n")
+    print(sortie)
