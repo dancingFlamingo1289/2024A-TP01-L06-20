@@ -1,7 +1,6 @@
 # TODO: Créer un script pour calculer les ressources nécessaires pour assainir la Seine.
 # TODO: Importer les modules nécessaires.
-import math
-
+from math import ceil
 # Quantité d'eau de base à assanir.
 qteEauBase = 5
 # Quantité de filtres pour assanir qteEauBase d'eau
@@ -11,15 +10,18 @@ qteLampesRequise = 3
 # Quantité de chlore (en kilogrammes) pour assanir qteEauBase d'eau
 qteChloreRequise = 0.5
 
-qteEau = float(input("Quelle quantité d'eau faut-il assanir ? "))
-rapportEau = qteEau // qteEauBase
+qteEau = (input("Quelle quantité d'eau faut-il assainir ? "))
 
-qteFiltres = qteFiltresRequise * rapportEau
-qteLampes = qteLampesRequise * rapportEau
-qteChlore = qteChloreRequise * rapportEau
 
-sortie = (f"Voici les matériaux requis pour l'assainissement de {qteEau} L d'eau :\n" +
-          f"\t- {qteFiltres} filtres\n" +
-          f"\t- {qteLampes} lampes UV\n" +
-          f"\t- {qteChlore} kg de chlore")
+rapportEau = float(qteEau) /float(qteEauBase)
+
+qteFiltres = float(qteFiltresRequise) * float(rapportEau)
+qteLampes = float(qteLampesRequise) * float(rapportEau)
+qteChlore = float(qteChloreRequise) * float(rapportEau)
+
+qteFlitres = int(ceil(qteFiltres))
+qteLampes = int(ceil(qteLampes))
+qteChlore = float(qteChlore)
+
+sortie = f"""Voici les éléments requis pour assainir {qteEau}L d'eau:\n\n        \t- Filtre(s) : {qteFlitres}\n\n        \t- Lampe(s) UV : {qteLampes}\n\n        \t- Chlore : {qteChlore}kg"""
 print(sortie)
