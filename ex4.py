@@ -4,7 +4,7 @@
 #        Assurez une gestion du pourcentage valide au cours de votre programme (% toujours dans [0 ; 100]).
 
 # Niveau de batterie du bateau
-niveauBatterie = float(input("Pourcentage de la batterie ? "))
+niveauBatterie = float(input("Pourcentage de batterie ? "))
 
 # Entre 50% et 100% de batterie, chaque pourcentage équivaut à 2km.
 distCinquante_cent = 2

@@ -30,6 +30,6 @@ if not wrongSequence :
     countSilver = getCharCounts(code_medals[1], sequence)
     countBronze = getCharCounts(code_medals[2], sequence)
 
-    exit = f"{country}:\n- {countGold} OR\n- {countSilver} Argent\n- {countBronze} Bronze\n"
+    exit = f"{country}:\n- {countGold} OR\n- {countSilver} Argent\n- {countBronze} Bronze"
     print(exit)
 #print(getCharCounts(code_medals, country))
