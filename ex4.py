@@ -4,7 +4,7 @@
 #        Assurez une gestion du pourcentage valide au cours de votre programme (% toujours dans [0 ; 100]).
 
 # Niveau de batterie du bateau
-niveauBatterie = int(input("Pourcentage de la batterie : "))
+niveauBatterie = float(input("Pourcentage de la batterie ? "))
 
 # Entre 50% et 100% de batterie, chaque pourcentage équivaut à 2km.
 distCinquante_cent = 2
@@ -19,23 +19,28 @@ distZero_cinq = 6
 
 dist = 0
 # L'utilisateur devra entrer son niveau de batterie tant qu'il est supérieur à 100% et inférieur à 0%
-while (niveauBatterie < 0 or niveauBatterie > 100) :
-    print("Erreur : Le niveau de batterie doit être entre 0 et 100 pour-cent.")
-    niveauBatterie = int(input("Pourcentage de la batterie : "))
+#while (niveauBatterie < 0 or niveauBatterie > 100) :
+    #print("Erreur : Le niveau de batterie doit être entre 0 et 100 pour-cent.")
+    #niveauBatterie = int(input("Pourcentage de la batterie : "))
 
 def determinerDistance(niveauBatterie) :
-    if 50 < niveauBatterie <= 100 :
-        dist = niveauBatterie * distCinquante_cent
-    elif 25 < niveauBatterie <= 50 :
-        dist = niveauBatterie * distVingtCinq_cinquante
-    elif 10 < niveauBatterie <= 25 :
-        dist = niveauBatterie * distDix_vingtCinq
-    elif 5 < niveauBatterie <= 10 :
-        dist = niveauBatterie * distCinq_dix
-    elif 0 < niveauBatterie <= 5 :
-        dist = niveauBatterie * distZero_cinq
-    
-    return dist
+    dist = 0.0
 
-exit = f"La distance possible est de {determinerDistance(niveauBatterie)} km."
+    if niveauBatterie == 0 :
+        print("La batterie est vide\n")
+    else :
+        if 50 < niveauBatterie <= 100 :
+            dist = niveauBatterie * distCinquante_cent
+        elif 25 < niveauBatterie <= 50 :
+            dist = niveauBatterie * distVingtCinq_cinquante
+        elif 10 < niveauBatterie <= 25 :
+            dist = niveauBatterie * distDix_vingtCinq
+        elif 5 < niveauBatterie <= 10 :
+            dist = niveauBatterie * distCinq_dix
+        elif 0 < niveauBatterie <= 5 :
+            dist = niveauBatterie * distZero_cinq
+        
+        return dist
+
+exit = f"{determinerDistance(niveauBatterie)} km"
 print(exit)
