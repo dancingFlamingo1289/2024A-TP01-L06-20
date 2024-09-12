@@ -12,7 +12,7 @@ qteChloreRequise = 0.5
 
 qteEau = (input("Quelle quantité d'eau faut-il assainir ? "))
 
-rapportEau = float(qteEau) /float(qteEauBase)
+rapportEau = float(qteEau) / float(qteEauBase)
 
 qteFiltres = float(qteFiltresRequise) * float(rapportEau)
 qteLampes = float(qteLampesRequise) * float(rapportEau)
