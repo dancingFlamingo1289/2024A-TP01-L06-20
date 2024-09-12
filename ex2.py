@@ -1,7 +1,6 @@
 # TODO: Créer un script pour calculer les ressources nécessaires pour assainir la Seine.
 # TODO: Importer les modules nécessaires.
-import math
-
+from math import ceil
 # Quantité d'eau de base à assanir.
 qteEauBase = 5
 # Quantité de filtres pour assanir qteEauBase d'eau
@@ -11,19 +10,17 @@ qteLampesRequise = 3
 # Quantité de chlore (en kilogrammes) pour assanir qteEauBase d'eau
 qteChloreRequise = 0.5
 
-qteEauStr = input("Quelle quantité d'eau faut-il assanir ? ")
+qteEau = (input("Quelle quantité d'eau faut-il assainir ? "))
 
-if (qteEauStr != "") :
-    qteEau = float(qteEauStr)
+rapportEau = float(qteEau) /float(qteEauBase)
 
-    rapportEau = qteEau / qteEauBase
+qteFiltres = float(qteFiltresRequise) * float(rapportEau)
+qteLampes = float(qteLampesRequise) * float(rapportEau)
+qteChlore = float(qteChloreRequise) * float(rapportEau)
 
-    qteFiltres = qteFiltresRequise * rapportEau
-    qteLampes = qteLampesRequise * rapportEau
-    qteChlore = qteChloreRequise * rapportEau
+qteFlitres = int(ceil(qteFiltres))
+qteLampes = int(ceil(qteLampes))
+qteChlore = float(qteChlore)
 
-    sortie = (f"Voici les elements requis pour assainir {qteEau}L d'eau:\n\n" +
-                f"\t- Filtre(s) : {qteFiltres}\n\n" +
-                f"\t- Lampes UV : {qteLampes}\n\n" +
-                f"\t- Chlore : {qteChlore}kg\n\n")
-    print(sortie)
+sortie = f"""Voici les éléments requis pour assainir {qteEau}L d'eau:\n\n        \t- Filtre(s) : {qteFlitres}\n\n        \t- Lampe(s) UV : {qteLampes}\n\n        \t- Chlore : {qteChlore}kg"""
+print(sortie)
