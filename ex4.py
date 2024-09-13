@@ -3,9 +3,6 @@
 #        et affiche le résultat au format "XX km".
 #        Assurez une gestion du pourcentage valide au cours de votre programme (% toujours dans [0 ; 100]).
 
-# Niveau de batterie du bateau
-niveauBatterie = float(input("Pourcentage de la batterie ? "))
-
 # Entre 50% et 100% de batterie, chaque pourcentage équivaut à 2km.
 distCinquante_cent = 2
 # Entre 25% et 50% de batterie, chaque pourcentage équivaut à 0,5km
@@ -25,22 +22,38 @@ dist = 0
 
 def determinerDistance(niveauBatterie) :
     dist = 0.0
+    bornes = [100, 50, 25, 10, 5, 0]
 
-    if niveauBatterie == 0 :
-        print("La batterie est vide\n")
-    else :
-        if 50 < niveauBatterie <= 100 :
-            dist = niveauBatterie * distCinquante_cent
-        elif 25 < niveauBatterie <= 50 :
-            dist = niveauBatterie * distVingtCinq_cinquante
-        elif 10 < niveauBatterie <= 25 :
-            dist = niveauBatterie * distDix_vingtCinq
-        elif 5 < niveauBatterie <= 10 :
-            dist = niveauBatterie * distCinq_dix
-        elif 0 < niveauBatterie <= 5 :
-            dist = niveauBatterie * distZero_cinq
+    if niveauBatterie > bornes[1] :
+        dist += (niveauBatterie - bornes[1]) * distCinquante_cent
+        niveauBatterie -= bornes[1]
+
+    if niveauBatterie > bornes[2] :
+        dist = (niveauBatterie - bornes[2]) * distVingtCinq_cinquante
+        niveauBatterie -= bornes[2]
+
+    if niveauBatterie > bornes[3] :
+        dist = (niveauBatterie - bornes[3]) * distDix_vingtCinq
+        niveauBatterie -= bornes[3]
+
+    if niveauBatterie > bornes[4] :
+        dist = (niveauBatterie - bornes[4]) * distCinq_dix
+        niveauBatterie -= bornes[4]
+
+    if niveauBatterie > bornes[5] :
+        dist = (niveauBatterie - bornes[5]) * distZero_cinq
+        niveauBatterie -= bornes[5]
         
-        return dist
+    return dist
 
-exit = f"{determinerDistance(niveauBatterie)} km"
+# Niveau de batterie du bateau
+niveauBatterie = float(input("Pourcentage de batterie ? "))
+
+exit = ""
+if niveauBatterie == 0 :
+    exit = "La batterie est vide\n"
+else :
+    dist = round(determinerDistance(niveauBatterie), 1)
+    exit = f"{dist} km"
+
 print(exit)
