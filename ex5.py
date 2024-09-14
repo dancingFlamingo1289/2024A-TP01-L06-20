@@ -13,7 +13,6 @@ def getCharCounts(char, sequence) -> tuple :
 
     return count
 
-#if __name__ == "__main__" :
 country = input("Pays concerné ? ")
 sequence = input("Chaine représentant les médailles ? ")
 code_medals = ["G", "S", "B"]
@@ -30,6 +29,5 @@ if not wrongSequence :
     countSilver = getCharCounts(code_medals[1], sequence)
     countBronze = getCharCounts(code_medals[2], sequence)
 
-    exit = f"{country}:\n- {countGold} OR\n- {countSilver} Argent\n- {countBronze} Bronze\n"
+    exit = f"{country}:\n- {countGold} OR\n- {countSilver} Argent\n- {countBronze} Bronze"
     print(exit)
-#print(getCharCounts(code_medals, country))
