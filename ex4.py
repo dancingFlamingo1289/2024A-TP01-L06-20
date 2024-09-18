@@ -29,7 +29,7 @@ def determinerDistance(niveauBatterie) :
         niveauBatterie = bornes[1]
 
     if niveauBatterie > bornes[2] :
-        dist = (niveauBatterie - bornes[2]) * distVingtCinq_cinquante
+        dist += (niveauBatterie - bornes[2]) * distVingtCinq_cinquante
         niveauBatterie = bornes[2]
 
     if niveauBatterie > bornes[3] :
@@ -43,12 +43,11 @@ def determinerDistance(niveauBatterie) :
     if niveauBatterie > bornes[5] :
         dist += (niveauBatterie - bornes[5]) * distZero_cinq
         niveauBatterie = bornes[5]
-        
+    
     return dist
 
 # Niveau de batterie du bateau
 niveauBatterie = float(input("Pourcentage de batterie ? "))
-print(niveauBatterie)
 
 exit = ""
 if niveauBatterie == 0 :
