@@ -43,26 +43,24 @@ class TestExercice2(unittest.TestCase):
     def format_tests(self, water_quantity: float, n_filter: int, n_light: int, kg_chlorine: float):
         simulated_inputs = f"{water_quantity}\n"
         output = self.runner.run(simulated_inputs)
-        # print(output)
-        expected = f"""{self.input_questions}Voici les éléments requis pour assainir {water_quantity}L d'eau:\n
-        \t- Filtre(s) : {n_filter}\n
-        \t- Lampe(s) UV : {n_light}\n
-        \t- Chlore : {kg_chlorine}kg\n"""
-        # print(expected)
+        expected = f"""{self.input_questions}Voici les éléments requis pour assainir {water_quantity}L d'eau:
+\t- Filtre(s) : {n_filter}
+\t- Lampe(s) UV : {n_light}
+\t- Chlore : {kg_chlorine}kg\n"""
         self.assertEqual(output, expected)
 
     def test_standard_water(self):
-        water_quantity = 1
+        water_quantity = 5.0
         expected_filter = 1
-        expected_light = 1
-        expected_chlorine = 0.1
+        expected_light = 3
+        expected_chlorine = 0.5
         self.format_tests(water_quantity, expected_filter, expected_light, expected_chlorine)
 
     def test_standard_water_float(self):
-        water_quantity = 5.3
-        expected_filter = 2
-        expected_light = 4
-        expected_chlorine = 0.53
+        water_quantity = 35.0
+        expected_filter = 7
+        expected_light = 21
+        expected_chlorine = 3.5
         self.format_tests(water_quantity, expected_filter, expected_light, expected_chlorine)
 
 class TestExercice3(unittest.TestCase): 
@@ -149,7 +147,7 @@ class TestExercice5(unittest.TestCase):
         medals = "GSBS"
         simulated_inputs = f"{country}\n{medals}"
         output = self.runner.run(simulated_inputs)
-        expected = f"{self.input_questions}{country}:\n- 1 OR\n- 2 Argent\n- 1 Bronze\n"
+        expected = f"{self.input_questions}{country}:\n- 1 Or\n- 2 Argent\n- 1 Bronze\n"
         self.assertEqual(output, expected)
 
 
@@ -158,7 +156,15 @@ class TestExercice5(unittest.TestCase):
         medals = "GSBSSGBSGSSGBSBBBGGSSSS"
         simulated_inputs = f"{country}\n{medals}"
         output = self.runner.run(simulated_inputs)
-        expected = f"{self.input_questions}{country}:\n- 6 OR\n- 11 Argent\n- 6 Bronze\n"
+        expected = f"{self.input_questions}{country}:\n- 6 Or\n- 11 Argent\n- 6 Bronze\n"
+        self.assertEqual(output, expected)
+    
+    def test_wrong_str(self):
+        country = "CAN"
+        medals = "A"
+        simulated_inputs = f"{country}\n{medals}"
+        output = self.runner.run(simulated_inputs)
+        expected = f"{self.input_questions}Ceci est une chaine invalide.\n"
         self.assertEqual(output, expected)
 
 if __name__ == "__main__": 
