@@ -22,12 +22,12 @@ wrongSequence = False
 for char in sequence :
     if char not in code_medals :
         wrongSequence = True
-        print("Ceci est une chaîne invalide")
+        print("Ceci est une chaine invalide.")
 
 if not wrongSequence :
     countGold = getCharCounts(code_medals[0], sequence)
     countSilver = getCharCounts(code_medals[1], sequence)
     countBronze = getCharCounts(code_medals[2], sequence)
 
-    exit = f"{country}:\n- {countGold} OR\n- {countSilver} Argent\n- {countBronze} Bronze"
+    exit = f"{country}:\n- {countGold} Or\n- {countSilver} Argent\n- {countBronze} Bronze"
     print(exit)

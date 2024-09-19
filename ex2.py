@@ -22,5 +22,7 @@ qteFlitres = int(ceil(qteFiltres))
 qteLampes = int(ceil(qteLampes))
 qteChlore = float(qteChlore)
 
-sortie = f"""Voici les éléments requis pour assainir {qteEau}L d'eau:\n\n        \t- Filtre(s) : {qteFlitres}\n\n        \t- Lampe(s) UV : {qteLampes}\n\n        \t- Chlore : {qteChlore}kg"""
+sortie = f"""Voici les éléments requis pour assainir {qteEau}L d'eau:
+\t- Filtre(s) : {qteFlitres}\n\t- Lampe(s) UV : {qteLampes}
+\t- Chlore : {qteChlore}kg"""
 print(sortie)
